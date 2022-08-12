@@ -21,7 +21,7 @@
 
             <!-- <i v-if="!item.opened" class='fas fa-skull-crossbones' style='font-size:35px;color:red; margin-top: 5px'></i> -->
 
-            <div class="container" >
+            <div class="container" > 
               <span class="title" v-if="!item.opened || isGameOver">{{item.title}}</span>
               <!-- <span class="title">{{item.team}}</span> -->
               

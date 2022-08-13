@@ -77,9 +77,7 @@ export default {
 
     init(){
       if(this.hasMounted){
-        if(confirm( `Are you sure you wanna reset the game? `)){
-          
-        }else{
+        if(!confirm( `Are you sure you wanna reset the game? `)){
           return 
         }
       }

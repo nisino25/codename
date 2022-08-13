@@ -2,6 +2,7 @@
   <div class="wrapper">
     <button @click="init()">start/reset</button>&nbsp;
     <button @click="showingConfirmation()">showing:{{showing}}</button>&nbsp;
+    <button @click="fixing = !fixing" v-if="blueCount == 0 && redCount == 0">Fixing: {{fixing}}</button>&nbsp;
     <br><br>
     <span style="font-size:150%">Blue: {{blueCount}}/9: Red: {{redCount}}/8</span> <br>
     <strong style="font-size:200%"  v-if="winner">The winner is {{winner}}!</strong>
@@ -62,8 +63,10 @@ export default {
       wordsList,
       gameData: [],
       showing: false,
+      fixing: false,
       winner: undefined,
       isGameOver: false,
+
 
     }
   },
@@ -156,6 +159,26 @@ export default {
 
     // ------------------------------
     clicking(item){
+      // let theTeam = item.team
+      if(this.fixing){
+        if(confirm( `Changing the word ${item.title} to new one? `)){
+          let flag= false
+          console.log('here')
+
+          while(!flag){
+            // this.gameData.push(this.getRandomValue)
+            let word = this.getRandomValue('word')
+            if(!word.used){
+              item.title = word.title
+              // item.team = theTeam
+              // word.used = true
+              flag = true
+            }
+          }
+        }
+        return
+      }
+
       if(item.opened) return
       if(this.isGameOver) return
       if(confirm( `Are you opening ${item.title}? `)){
@@ -272,7 +295,7 @@ export default {
   /* padding: 0px; */
   text-align: center;
   background-color: #f1f1f1;
-  margin-bottom: 15px;
+  margin-bottom: 17.5px;
   height:25px;
   font-size: 80%;
   padding-top: 25px;

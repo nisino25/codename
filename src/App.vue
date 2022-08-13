@@ -67,12 +67,23 @@ export default {
       winner: undefined,
       isGameOver: false,
 
+      hasMounted: false
+      
+
 
     }
   },
   methods:{
 
     init(){
+      if(this.hasMounted){
+        if(confirm( `Are you sure you wanna reset the game? `)){
+          
+        }else{
+          return 
+        }
+      }
+      this.hasMounted =true
       this.clean()
 
       let count =0 
@@ -109,6 +120,8 @@ export default {
 
     clean(){
       this.gameData= []
+      this.winner = undefined
+      this.isGameOver = false
       for(let i in this.wordsList){
         this.wordsList[i].used =  false
         this.wordsList[i].opened = false

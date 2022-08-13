@@ -272,13 +272,11 @@ export default {
   /* padding: 0px; */
   text-align: center;
   background-color: #f1f1f1;
-  margin-bottom: 30px;
-  /* height: auto; */
-  height:30px;
+  margin-bottom: 15px;
+  height:25px;
   font-size: 80%;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 .line-break {
